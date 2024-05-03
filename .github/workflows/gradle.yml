@@ -30,7 +30,7 @@ jobs:
         run: ./gradlew compileKotlin
 
       - name: Test with Gradle Wrapper
-        run: ./gradlew test --tests AggregationKtTest --tests Request1BlockingKtTest --tests Request3CallbacksKtTest
+        run: ./gradlew test --tests AggregationKtTest --tests Request1BlockingKtTest --tests Request3CallbacksKtTest --tests Request4SuspendKtTest
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
