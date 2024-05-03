@@ -12,7 +12,7 @@ import contributors.User
  The corresponding test can be found in test/tasks/AggregationKtTest.kt.
  You can use 'Navigate | Test' menu action (note the shortcut) to navigate to the test.
 */
-fun List<User>.aggregate(): List<User> = solution1()
+fun List<User>.aggregate(): List<User> = solution2()
 
 private fun List<User>.solution1(): List<User> {
     val map = mutableMapOf<String, Int>()
@@ -25,3 +25,8 @@ private fun List<User>.solution1(): List<User> {
     }
     return ans.sortedByDescending { it.contributions }
 }
+
+private fun List<User>.solution2(): List<User> =
+    this.groupBy { it.login }
+        .map { (login, group) -> User(login, group.sumOf { it.contributions }) }
+        .sortedByDescending { it.contributions }
